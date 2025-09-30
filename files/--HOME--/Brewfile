@@ -29,7 +29,9 @@ puts "Only performing base installation!" if is_base_install
 # TODO: This doesn't solve the issue about performing a custom action when a specific formula/cask is (re)installed
 at_exit { system('post-brew-install.sh') }
 
+tap 'hashicorp/tap'
 tap 'romkatv/powerlevel10k'
+tap 'symfony-cli/tap'
 tap 'TheBoredTeam/boring-notch' if ::OS::Mac::version >= 14
 
 # formulae pulled in from homebrew to replace system equivalents to fix any security issues since the OS was released
@@ -70,33 +72,92 @@ brew 'prettyping'
 brew 'ripgrep'
 brew 'syncthing'
 brew 'tlrc'
+brew 'libtiff'
+brew 'little-cms2'
+brew 'webp'
+brew 'jpeg-xl'
+brew 'aom'
+brew 'aws-vault'
+brew 'awscli'
+brew 'unbound'
+brew 'gnutls'
+brew 'emacs'
+brew 'cask'
+brew 'pycparser'
+brew 'cffi'
+brew 'qemu'
+brew 'lima'
+brew 'colima'
+brew 'curl'
+brew 'docker'
+brew 'docker-compose'
+brew 'docutils'
+brew 'exercism'
+brew 'freetds'
+brew 'libavif'
+brew 'gd'
+brew 'git'
+brew 'harfbuzz'
+brew 'openjdk@17'
+brew 'gradle'
+brew 'jenkins'
+brew 'jenkins-lts'
+brew 'jq'
+brew 'kubernetes-cli'
+brew 'libpq'
+brew 'maven'
+brew 'minikube'
+brew 'nginx'
+brew 'openssl@1.1'
+brew 'postgresql@14'
+brew 'psqlodbc'
+brew 'wget'
+brew 'zsh'
+brew 'hashicorp/tap/terraform'
+brew 'symfony-cli/tap/symfony-cli'
 
 cask 'aldente', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'AlDente'"
 cask 'boring-notch', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'boringNotch'" if ::OS::Mac::version >= 14
 cask 'brave-browser'
 cask 'clocker', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Clocker'"
-cask 'firefox@nightly' #, greedy: true
-cask 'fliqlo'
-cask 'google-chrome@beta'
-cask 'grayjay'
 cask 'jordanbaird-ice@beta', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Ice'" if ::OS::Mac::version >= 14
-cask 'keepassxc@beta'
-cask 'keycastr'
-cask 'keyclu' if is_arm
-cask 'ollama-app', restart_service: :changed
-cask 'onlyoffice'
-cask 'onyx' # if !is_beta_os && ::OS::Mac::version < 26
-cask 'pearcleaner'
-cask 'protonvpn'
 cask 'rancher'
 cask 'raycast', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Raycast'"
 cask 'stats', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Stats'"
-cask 'vscodium@insiders'   # TODO: Doesn't handle 'Remote Containers' and GH-based auto-syncing when compared to VSCode
-cask 'zen@twilight'
 cask 'zoom'
+cask '1password'
+cask 'adoptopenjdk8'
+cask 'altair-graphql-client'
+cask 'arc'
+cask 'atom'
+cask 'brave-browser'
+cask 'cloudflare-warp'
+cask 'firefox'
+cask 'google-chrome'
+cask 'google-drive'
+cask 'intellij-idea-ce'
+cask 'iterm2'
+cask 'mattermost'
+cask 'microsoft-auto-update'
+cask 'microsoft-office'
+cask 'microsoft-teams'
+cask 'notion'
+cask 'phpstorm'
+cask 'pycharm'
+cask 'stats'
+cask 'sublime-text'
+cask 'tableplus'
+cask 'virtualbox'
+cask 'visual-studio-code'
 
-brew 'mas'
-mas 'PDFgear', id: 6469021132
+# F5 Endpoint Inspector.app
+# Google Docs.app
+# Google Sheets.app
+# Google Slides.app
+# JProfiler.app
+# SoapUI-5.7.0.app
+# TIBCO Jaspersoft Studio 6.20.0.app
+# VMware Horizon Client.app
 
 # VSCode extensions
 # Note: I don't want brew to silently install VS Code (which is what it does currently if the following lines are present but it doesn't find the executable 'code'!)
@@ -144,6 +205,23 @@ if is_vscode_installed
   vscode 'wayou.vscode-todo-highlight'
   vscode 'wmaurer.change-case'
   vscode 'yzhang.markdown-all-in-one'
+vscode 'dbaeumer.vscode-eslint'
+vscode 'devsense.composer-php-vscode'
+vscode 'devsense.intelli-php-vscode'
+vscode 'devsense.phptools-vscode'
+vscode 'devsense.profiler-php-vscode'
+vscode 'humao.rest-client'
+vscode 'k--kato.intellij-idea-keybindings'
+vscode 'mblode.twig-language'
+vscode 'mkloubert.vs-rest-api'
+vscode 'ms-python.debugpy'
+vscode 'ms-python.python'
+vscode 'ms-python.vscode-pylance'
+vscode 'ms-python.vscode-python-envs'
+vscode 'ms-vscode.cpptools'
+vscode 'pkief.material-icon-theme'
+vscode 'platformio.platformio-ide'
+vscode 'ritwickdey.liveserver'
 end
 
 # ----------------------------------------------------------------------------------------------------------
