@@ -34,7 +34,7 @@ export ARCHFLAGS="-arch ${ARCH}"
 
 # ------------ Env vars for basic/common setup ------------
 # The github username where the setup scripts are downloaded from
-export GH_USERNAME='vraravam'
+export GH_USERNAME='monirajan'
 
 # Vijay's github username for setting upstream remote
 export UPSTREAM_GH_USERNAME='vraravam' # Note: Do NOT change this
