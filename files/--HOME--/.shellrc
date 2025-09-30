@@ -58,7 +58,7 @@ export PERSONAL_CONFIGS_DIR="${HOME}/personal/dev/configs"
 export PERSONAL_PROFILES_DIR="${HOME}/personal/$(whoami)/profiles"
 
 # Keybase username
-export KEYBASE_USERNAME='avijayr'
+export KEYBASE_USERNAME='monisharajan'
 
 # Keybase home repo name
 export KEYBASE_HOME_REPO_NAME='home'
