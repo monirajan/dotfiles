@@ -89,8 +89,4 @@ This script was originally present as a function within the `~/.aliases` file, b
 
 There are so many tools installed, and some of them require their local caches/dbs/configs/etc to be updated from time to time. Rather than remembering each tool and its invocation (for updates), this script is a single place where any new tooling is added so that I don't need to remember the incantation for each separately.
 
-## upreb-universal.sh
-
-This script is used to run the `git upreb` command for all the locally checked-out branches of the specified folder. If no folder is specified, the script defaults to using the current directory.
-
 Back to the [readme](README.md#extrasdetails)

@@ -317,7 +317,7 @@ build_keybase_repo_url() {
 }
 
 folder_size() {
-  local folder="${1:-$(pwd)}"
+  local folder="${1:-${PWD}}"
   echo "$(yellow "$(realpath "${folder}")") --> $(cyan "$(/usr/bin/du -sh "${folder}" | cut -f1)") bytes"
 }
 

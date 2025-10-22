@@ -119,7 +119,7 @@ home pull
 sleep 10  # so that GH doesn't throttle when we call a lot of times within a short time
 
 section_header "$(yellow 'Upreb repos in oss folder')"
-upreb && success 'Finished upreb for oss repos' || warn 'Failed to upreb oss repos'
+FOLDER="${PROJECTS_BASE_DIR}/oss" rug upreb && success 'Finished upreb for oss repos' || warn 'Failed to upreb oss repos'
 
 section_header "$(yellow 'Capture app preferences')"
 capture-prefs.sh -e && success 'Finished capturing app preferences' || warn 'Failed to capture app preferences'

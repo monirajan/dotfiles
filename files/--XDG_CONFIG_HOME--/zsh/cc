@@ -6,13 +6,17 @@
 # git command: cc
 
 # Source shell helpers if they aren't already loaded
-type section_header &> /dev/null 2>&1 || source "${HOME}/.shellrc"
+type is_executable &> /dev/null 2>&1 || source "${HOME}/.shellrc"
 
 # Note: Use a function so that it can accept parameters
 cc() {
-  local folder="${1:-$(pwd)}"
+  local folder="${1:-${PWD}}"
   section_header "$(yellow 'Compressing') $(purple "${folder}")"
   git -C "${folder}" cc
 }
 
-cc "$@"
+if is_executable "${PERSONAL_BIN_DIR}/cc-${PWD##*/}.sh"; then
+  . "${PERSONAL_BIN_DIR}/cc-${PWD##*/}.sh" "$@"
+else
+  cc "$@"
+fi

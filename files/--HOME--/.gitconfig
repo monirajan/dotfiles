@@ -148,7 +148,7 @@
 
   # TODO: Find a way to parameterize the 'before' and 'after' strings
   # prints the size of the current repo
-  size = !echo \"==> Size of repository at '$(pwd)': $(du -sh .git | cut -f1)\"
+  size = !echo \"==> Size of repository at '${PWD}': $(du -sh .git | cut -f1)\"
 
   # compress disk-space-usage by deleting dangling commits (use SKIP_SIZE_BEFORE=1 to skip printing the size before the operation)
   # Note: Do not use '--all' switch for reflog expire - since that also destroys stashes

@@ -10,7 +10,7 @@ type section_header &> /dev/null 2>&1 || source "${HOME}/.shellrc"
 
 # Note: Use a function so that it can accept parameters
 count() {
-  local folder="${1:-$(pwd)}"
+  local folder="${1:-${PWD}}"
   section_header "$(yellow 'Counting commits') $(purple "${folder}")"
   git -C "${folder}" count
 }
