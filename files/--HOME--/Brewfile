@@ -29,7 +29,9 @@ puts "Only performing base installation!" if is_base_install
 # TODO: This doesn't solve the issue about performing a custom action when a specific formula/cask is (re)installed
 at_exit { system('post-brew-install.sh') }
 
+tap 'hashicorp/tap'
 tap 'romkatv/powerlevel10k'
+tap 'symfony-cli/tap'
 tap 'TheBoredTeam/boring-notch' if ::OS::Mac::version >= 14
 
 # formulae pulled in from homebrew to replace system equivalents to fix any security issues since the OS was released
@@ -59,44 +61,71 @@ cask 'keybase', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 
 return 0 if is_base_install
 
 # formulae pulled in for advanced configs (these are optional, but still recommended)
+brew 'aom'
+brew 'aws-vault'
+brew 'awscli'
 brew 'bat'
 brew 'btop'
+brew 'cffi'
+brew 'docutils'
+brew 'emacs'
+brew 'exercism'
+brew 'freetds'
+brew 'gd'
 brew 'git-gui'
+brew 'gnutls'
+brew 'harfbuzz'
+brew 'hashicorp/tap/terraform'
+brew 'jpeg-xl'
 brew 'jq'
+brew 'kubernetes-cli'
+brew 'libavif'
+brew 'libpq'
+brew 'libtiff'
+brew 'little-cms2'
+brew 'minikube'
 brew 'moreutils'
 brew 'ncdu'
+brew 'nginx'
 brew 'pandoc'
+brew 'postgresql@14'
 brew 'prettyping'
+brew 'psqlodbc'
+brew 'pycparser'
+brew 'qemu'
 brew 'ripgrep'
+brew 'symfony-cli/tap/symfony-cli'
 brew 'syncthing'
 brew 'tlrc'
+brew 'unbound'
+brew 'webp'
 
+cask '1password'
 cask 'aldente', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'AlDente'"
 cask 'boring-notch', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'boringNotch'" if ::OS::Mac::version >= 14
 cask 'brave-browser'
 cask 'clocker', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Clocker'"
-cask 'firefox@nightly' #, greedy: true
-cask 'fliqlo'
-cask 'google-chrome@beta'
-cask 'grayjay'
+cask 'firefox'
+cask 'google-chrome'
+cask 'intellij-idea-ce'
 cask 'jordanbaird-ice@beta', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Ice'" if ::OS::Mac::version >= 14
-cask 'keepassxc@beta'
-cask 'keycastr'
-cask 'keyclu' if is_arm
-cask 'ollama-app', restart_service: :changed
-cask 'onlyoffice'
-cask 'onyx' # if !is_beta_os && ::OS::Mac::version < 26
-cask 'pearcleaner'
-cask 'protonvpn'
+cask 'microsoft-auto-update'
+cask 'microsoft-office'
+cask 'pycharm'
 cask 'rancher'
 cask 'raycast', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Raycast'"
 cask 'stats', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Stats'"
-cask 'vscodium@insiders'   # TODO: Doesn't handle 'Remote Containers' and GH-based auto-syncing when compared to VSCode
-cask 'zen@twilight'
+cask 'visual-studio-code'
 cask 'zoom'
 
-brew 'mas'
-mas 'PDFgear', id: 6469021132
+# F5 Endpoint Inspector.app
+# Google Docs.app
+# Google Sheets.app
+# Google Slides.app
+# JProfiler.app
+# SoapUI-5.7.0.app
+# TIBCO Jaspersoft Studio 6.20.0.app
+# VMware Horizon Client.app
 
 # VSCode extensions
 # Note: I don't want brew to silently install VS Code (which is what it does currently if the following lines are present but it doesn't find the executable 'code'!)
@@ -118,25 +147,40 @@ if is_vscode_installed
   vscode 'codezombiech.gitignore'
   vscode 'davidanson.vscode-markdownlint'
   vscode 'dbaeumer.vscode-eslint'
+  vscode 'devsense.composer-php-vscode'
+  vscode 'devsense.intelli-php-vscode'
+  vscode 'devsense.phptools-vscode'
+  vscode 'devsense.profiler-php-vscode'
   vscode 'digitalbrainstem.javascript-ejs-support'
   vscode 'drcika.apc-extension'
   vscode 'editorconfig.editorconfig'
   vscode 'esbenp.prettier-vscode'
   vscode 'genuitecllc.codetogether'
   vscode 'google.geminicodeassist'
+  vscode 'humao.rest-client'
   vscode 'ibm.output-colorizer'
+  vscode 'k--kato.intellij-idea-keybindings'
+  vscode 'mblode.twig-language'
   vscode 'mechatroner.rainbow-csv'
   vscode 'mikestead.dotenv'
   vscode 'mkhl.direnv'
+  vscode 'mkloubert.vs-rest-api'
   vscode 'ms-azuretools.vscode-containers'
   vscode 'ms-azuretools.vscode-docker'
+  vscode 'ms-python.debugpy'
+  vscode 'ms-python.python'
+  vscode 'ms-python.vscode-pylance'
+  vscode 'ms-python.vscode-python-envs'
   vscode 'ms-vscode.atom-keybindings'
+  vscode 'ms-vscode.cpptools'
   vscode 'ms-vscode.vscode-typescript-next'
   vscode 'oderwat.indent-rainbow'
   vscode 'orta.vscode-jest'
+  vscode 'pkief.material-icon-theme'
+  vscode 'platformio.platformio-ide'
   vscode 'redhat.vscode-yaml'
   vscode 'richie5um2.vscode-sort-json'
-  vscode 'shan.code-settings-sync'
+  vscode 'ritwickdey.liveserver'
   vscode 'shopify.ruby-lsp'
   vscode 'tchayen.markdown-links'
   vscode 'tyriar.sort-lines'
